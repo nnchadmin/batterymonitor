@@ -33,6 +33,7 @@
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblPowerSource = new System.Windows.Forms.Label();
             this.btnCloseWindow = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -75,17 +76,27 @@
             // 
             this.btnCloseWindow.Location = new System.Drawing.Point(16, 215);
             this.btnCloseWindow.Name = "btnCloseWindow";
-            this.btnCloseWindow.Size = new System.Drawing.Size(132, 23);
+            this.btnCloseWindow.Size = new System.Drawing.Size(112, 23);
             this.btnCloseWindow.TabIndex = 4;
             this.btnCloseWindow.Text = "Close Window";
             this.btnCloseWindow.UseVisualStyleBackColor = true;
             this.btnCloseWindow.Click += new System.EventHandler(this.btnCloseWindow_Click);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(160, 214);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(112, 24);
+            this.btnRefresh.TabIndex = 5;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnCloseWindow);
             this.Controls.Add(this.lblPowerSource);
             this.Controls.Add(this.lblStatus);
@@ -105,6 +116,7 @@
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblPowerSource;
         private System.Windows.Forms.Button btnCloseWindow;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }
 
