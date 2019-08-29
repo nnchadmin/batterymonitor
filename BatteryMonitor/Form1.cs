@@ -13,21 +13,41 @@ namespace BatteryMonitor
     public partial class Form1 : Form
     {
 
+        private Timer timer1;
+        string powerSource, powerLevel;
+
         public Form1()
         {
+            timer1 = new Timer();
+            timer1.Start();
+            timer1.Tick += new System.EventHandler(onTimerEvent);
+            timer1.Interval = 1000; //interval of 1s
+
             InitializeComponent();
 
-            string batteryStatus = GetBatteryStatus().ToString() + " %";
-            string powerSource = GetPowerSource();
+            powerLevel = GetBatteryStatus().ToString() + " %";
+            powerSource = GetPowerSource();
             //setting the title of form so that the status can be viewed when window is minimised
-            this.Text = batteryStatus + " - " + powerSource;
+            this.Text = powerLevel + " - " + powerSource;
 
             lblPowerSource.Text = GetPowerSource();
-            lblStatus.Text = batteryStatus;
+            lblStatus.Text = powerLevel;
+        }
+
+        private void onTimerEvent(object sender, EventArgs e)
+        { 
+            powerSource = GetPowerSource();
+            powerLevel = GetBatteryStatus().ToString() + " %";
+
+            lblPowerSource.Text = powerSource;
+            lblStatus.Text = powerLevel;
+
+            this.Text = powerLevel + " - " + powerSource;
         }
 
         private void btnCloseWindow_Click(object sender, EventArgs e)
         {
+            timer1.Stop();
             Application.Exit();
         }
 
