@@ -17,8 +17,13 @@ namespace BatteryMonitor
         {
             InitializeComponent();
 
+            string batteryStatus = GetBatteryStatus().ToString() + " %";
+            string powerSource = GetPowerSource();
+            //setting the title of form so that the status can be viewed when window is minimised
+            this.Text = batteryStatus + " - " + powerSource;
+
             lblPowerSource.Text = GetPowerSource();
-            lblStatus.Text = GetBatteryStatus().ToString() + " %";
+            lblStatus.Text = batteryStatus;
         }
 
         private void btnCloseWindow_Click(object sender, EventArgs e)
